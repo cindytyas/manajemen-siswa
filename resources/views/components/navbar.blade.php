@@ -12,44 +12,54 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('siswa.index') }}" class="nav-link btn {{ request()->is('siswa*') ? 'active' : '' }}">
+                    <a href="{{ route('siswa.index') }}"
+                        class="nav-link btn {{ request()->is('siswa*') ? 'active' : '' }}">
                         <i class='bx bxs-user-badge'></i> Siswa
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link btn dropdown-toggle {{ request()->is('jurusan*') || request()->is('kelas*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link btn dropdown-toggle {{ request()->is('jurusan*') || request()->is('kelas*') ? 'active' : '' }}"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class='bx bxs-buildings'></i> Kelas
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ route('kelas.index') }}">Kelas</a></li>
-                      <li><a class="dropdown-item" href="{{ route('jurusan.index') }}">Jurusan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('kelas.index') }}">Kelas</a></li>
+                        <li><a class="dropdown-item" href="{{ route('jurusan.index') }}">Jurusan</a></li>
                     </ul>
-                  </li>
+                </li>
                 <li class="nav-item">
-                    <a href="{{ route('guru.index') }}" class="nav-link btn {{ request()->is('guru*') ? 'active' : '' }}">
+                    <a href="{{ route('guru.index') }}"
+                        class="nav-link btn {{ request()->is('guru*') ? 'active' : '' }}">
                         <i class='bx bxs-user-pin'></i> Guru
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('mapel.index') }}" class="nav-link btn {{ request()->is('mapel*') ? 'active' : '' }}">
+                    <a href="{{ route('mapel.index') }}"
+                        class="nav-link btn {{ request()->is('mapel*') ? 'active' : '' }}">
                         <i class='bx bxs-notepad'></i> Mapel
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link btn">
-                        <i class='bx bxs-book-bookmark'></i> SPP
+                <li class="nav-item dropdown">
+                    <a class="nav-link btn dropdown-toggle"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class='bx bxs-buildings'></i> SPP
                     </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('spp.index') }}">SPP</a></li>
+                        <li><a class="dropdown-item" href="#">SPP Siswa</a></li>
+                    </ul>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                      <li><a class="dropdown-item" href="#">Log Out</a></li>
+                        <li><a class="dropdown-item" href="#">Log Out</a></li>
                     </ul>
-                  </li>
+                </li>
             </ul>
         </div>
     </div>

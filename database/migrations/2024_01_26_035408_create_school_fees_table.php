@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('school_fees', function (Blueprint $table) {
             $table->id();
             $table->string('name_school_fee');
-            $table->enum('status', ['Tahunan', 'Bulanan']);
+            $table->enum('payment', ['Bulanan', 'Tahunan']);
             $table->string('nominal');
             $table->timestamps();
         });
