@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentSchoolFeeController extends Controller
