@@ -39,7 +39,7 @@ class SubjectContoller extends Controller
         ]);
     }
 
-    public function create($id)
+    public function create()
     {
         return view('pages.admin.subjects.create', [
             'title' => 'Tambah Mapel',
