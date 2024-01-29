@@ -25,24 +25,21 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
 
-Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
-Route::resource('guru', TeacherController::class);
+    Route::resource('guru', TeacherController::class);
+    Route::resource('jurusan', MajorController::class);
+    Route::resource('kelas', ClassroomController::class);
+    Route::resource('siswa', StudentController::class);
+    Route::resource('mapel', SubjectContoller::class);
+    Route::get('mapel/filter/kelompok', [SubjectContoller::class, 'filter'])->name('mapel.filter');
 
-Route::resource('jurusan', MajorController::class);
+    Route::resource('ortu', ParentController::class);
+    Route::get('siswa/{id}/orang-tua', [ParentController::class, 'orang_tua'])->name('orang-tua.index');
+    Route::get('siswa/{id}/orang-tua/create', [ParentController::class, 'create'])->name('orang-tua.create');
+    Route::get('siswa/{id}/orang-tua/{id_ortu}/edit', [ParentController::class, 'edit'])->name('orang-tua.edit');
 
-Route::resource('kelas', ClassroomController::class);
+    Route::resource('spp', SchoolFeeContoller::class);
+});
 
-Route::resource('siswa', StudentController::class);
-
-Route::resource('mapel', SubjectContoller::class);
-
-Route::get('mapel/filter/kelompok', [SubjectContoller::class, 'filter'])->name('mapel.filter');
-
-Route::resource('ortu', ParentController::class);
-
-Route::get('siswa/{id}/orang-tua', [ParentController::class, 'orang_tua'])->name('orang-tua.index');
-Route::get('siswa/{id}/orang-tua/create', [ParentController::class, 'create'])->name('orang-tua.create');
-Route::get('siswa/{id}/orang-tua/{id_ortu}/edit', [ParentController::class, 'edit'])->name('orang-tua.edit');
-
-Route::resource('spp', SchoolFeeContoller::class);
